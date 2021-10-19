@@ -5,7 +5,7 @@
 
     <!--  main content stack layout  -->
     <StackLayout>
-        <Frame BackgroundColor="BlanchedAlmond" Padding="24" CornerRadius="10">
+        <Frame BackgroundColor="BlanchedAlmond" Padding="20" CornerRadius="10">
 
             <!--  Grid for the game board  -->
             <Grid BackgroundColor="Gray" HeightRequest="1100" 
@@ -15,7 +15,6 @@
 
                 <!-- Columns 9 -->
                 <Grid.ColumnDefinitions>
-                    <ColumnDefinition/>
                     <ColumnDefinition/>
                     <ColumnDefinition/>
                     <ColumnDefinition/>
@@ -48,6 +47,8 @@
                     <RowDefinition/>
                     <RowDefinition/>
                 </Grid.RowDefinitions>
+
+<!-- ================================================================================================================================================================================== -->
 
                 <!-- Grid for Upper Section -->
                 <Grid Grid.Row="0" Grid.Column="0" 
@@ -154,6 +155,8 @@
                                Grid.Row="0" Grid.Column="4" Grid.ColumnSpan="3"/>
                 </Grid>
                 <!-- End of Grid for Upper Section -->
+                
+<!-- ================================================================================================================================================================================== -->
 
                 <!-- Grid for Lower Section -->
                 <Grid Grid.Row="13" Grid.Column="0" 
@@ -235,10 +238,65 @@
                 </Grid>
                 <!-- End of Grid for Lower Section -->
 
+<!-- ================================================================================================================================================================================== -->
+
                 <!-- Roll Dice Area -->
-                <Label x:Name="Dice1" HorizontalOptions="Center" Text="gg" Grid.Row="1" Grid.Column="7" Grid.ColumnSpan="2"/>
+                <Grid Grid.Column="7" Grid.Row="1" Grid.RowSpan="24">
+
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                    </Grid.ColumnDefinitions>
+
+                    <!-- Row 7-->
+                    <Grid.RowDefinitions>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                    </Grid.RowDefinitions>
+
+<!-- ================================================================================================================================================================================== -->
+                    <!-- Display -->
+                    <Label x:Name="DiceArea" HorizontalOptions="Center" Text="Click 'Roll Dice' to Start." Grid.Row="0" Grid.ColumnSpan="2"/>
+
+                    <!-- Dice 1 -->
+                    <Image x:Name="DiceRoll1" Source="uri" Grid.Row="1" Grid.ColumnSpan="2"/>
+                    <Button x:Name="Dice1Select" Text="Select" Background="Transparent" Grid.Row="2" Grid.RowSpan="1" Grid.ColumnSpan="2" Clicked="Dice1Select_Clicked"></Button>
+
+                    <!-- Dice 2 -->
+                    <Image x:Name="DiceRoll2" Source="uri" Grid.Row="3" Grid.ColumnSpan="2"/>
+                    <Button x:Name="Dice2Select" Text="Select" Background="Transparent" Grid.Row="4" Grid.RowSpan="1" Grid.ColumnSpan="2" Clicked="Dice2Select_Clicked"></Button>
+
+                    <!-- Dice 3 -->
+                    <Image x:Name="DiceRoll3" Source="uri" Grid.Row="5" Grid.ColumnSpan="2"/>
+                    <Button x:Name="Dice3Select" Text="Select" Background="Transparent" Grid.Row="6" Grid.RowSpan="1" Grid.ColumnSpan="2" Clicked="Dice3Select_Clicked"></Button>
+
+                    <!-- Dice 4 -->
+                    <Image x:Name="DiceRoll4" Source="uri" Grid.Row="7" Grid.ColumnSpan="2"/>
+                    <Button x:Name="Dice4Select" Text="Select" Background="Transparent" Grid.Row="8" Grid.RowSpan="1" Grid.ColumnSpan="2" Clicked="Dice4Select_Clicked"></Button>
+
+                    <!-- Dice 5 -->
+                    <Image x:Name="DiceRoll5" Source="uri" Grid.Row="9" Grid.ColumnSpan="2"/>
+                    <Button x:Name="Dice5Select" Text="Select" Background="Transparent" Grid.Row="10" Grid.RowSpan="1" Grid.ColumnSpan="2" Clicked="Dice5Select_Clicked"></Button>
+
+
+                    <Button x:Name="Btn_RollDice" Grid.Row="11" Text="New Game" BackgroundColor="Green" Grid.ColumnSpan="2" Clicked="Btn_RollDice_Clicked"></Button>
+
+
+                </Grid>
+                <!-- End of Dice Area -->
             </Grid>
         </Frame>
     </StackLayout>
-
 </ContentPage>
+
+    
+    
