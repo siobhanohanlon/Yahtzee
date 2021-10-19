@@ -83,6 +83,9 @@
                     <!-- Labels for Upper section -->
                     <Label Text="UPPER SECTION" HorizontalOptions="End" 
                                FontAttributes="Bold" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="3" />
+                    
+                    <Label Text="Game Scoring" HorizontalOptions="Center" FontAttributes="Bold" 
+                               Grid.Row="0" Grid.Column="4" Grid.ColumnSpan="4"/>
 
                     <!-- Ones -->
                     <Label Text="One" HorizontalOptions="Fill" Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="1"/>
@@ -92,6 +95,7 @@
                     <Button x:Name="Btn_Ones" Text="Select" Grid.Row="1" Grid.Column="4" 
                                     FontSize="Micro" Grid.ColumnSpan="2" HorizontalOptions="Center" Clicked="Btn_Ones_Clicked"/>
                     <Label x:Name="LblBtnOne" Text="0" Grid.Row="1" Grid.Column="6" />
+                    <Label x:Name="LblBtnOneSelected" Text="" Grid.Row="1" Grid.Column="7" />
 
                     <!-- Twos -->
                     <Label Text="Two" HorizontalOptions="Fill" Grid.Row="2" Grid.Column="1" Grid.ColumnSpan="1"/>
@@ -101,6 +105,7 @@
                     <Button x:Name="Btn_Twos" Text="Select" Grid.Row="2" Grid.Column="4" 
                                     FontSize="Micro" Grid.ColumnSpan="2" HorizontalOptions="Center" Clicked="Btn_Twos_Clicked"/>
                     <Label x:Name="LblBtnTwo" Text="0" Grid.Row="2" Grid.Column="6" />
+                    <Label x:Name="LblBtnTwoSelected" Text="" Grid.Row="2" Grid.Column="7" />
 
                     <!-- Threes -->
                     <Label Text="Three" HorizontalOptions="Fill" Grid.Row="3" Grid.Column="1" Grid.ColumnSpan="1"/>
@@ -110,6 +115,7 @@
                     <Button x:Name="Btn_Threes" Text="Select" Grid.Row="3" Grid.Column="4" 
                                     FontSize="Micro" Grid.ColumnSpan="2" HorizontalOptions="Center" Clicked="Btn_Threes_Clicked"/>
                     <Label x:Name="LblBtnThree" Text="0" Grid.Row="3" Grid.Column="6" />
+                    <Label x:Name="LblBtnThreeSelected" Text="" Grid.Row="3" Grid.Column="7" />
 
                     <!-- Fours -->
                     <Label Text="Four" HorizontalOptions="Fill" Grid.Row="4" Grid.Column="1" Grid.ColumnSpan="1"/>
@@ -119,6 +125,7 @@
                     <Button x:Name="Btn_Fours" Text="Select" Grid.Row="4" Grid.Column="4" 
                                     FontSize="Micro" Grid.ColumnSpan="2" HorizontalOptions="Center" Clicked="Btn_Fours_Clicked"/>
                     <Label x:Name="LblBtnFour" Text="0" Grid.Row="4" Grid.Column="6" />
+                    <Label x:Name="LblBtnFourSelected" Text="" Grid.Row="4" Grid.Column="7" />
 
                     <!-- Fives -->
                     <Label Text="Five" HorizontalOptions="Fill" Grid.Row="5" Grid.Column="1" Grid.ColumnSpan="1"/>
@@ -128,6 +135,7 @@
                     <Button x:Name="Btn_Fives" Text="Select" Grid.Row="5" Grid.Column="4" 
                                     FontSize="Micro" Grid.ColumnSpan="2" HorizontalOptions="Center" Clicked="Btn_Fives_Clicked"/>
                     <Label x:Name="LblBtnFive" Text="0" Grid.Row="5" Grid.Column="6" />
+                    <Label x:Name="LblBtnFiveSelected" Text="" Grid.Row="5" Grid.Column="7" />
 
                     <!-- Sixes -->
                     <Label Text="Six" HorizontalOptions="Fill" Grid.Row="6" Grid.Column="1" Grid.ColumnSpan="1"/>
@@ -137,22 +145,19 @@
                     <Button x:Name="Btn_Sixes" Text="Select" Grid.Row="6" Grid.Column="4" 
                                     FontSize="Micro" Grid.ColumnSpan="2" HorizontalOptions="Center" Clicked="Btn_Sixes_Clicked"/>
                     <Label x:Name="LblBtnSix" Text="0" Grid.Row="6" Grid.Column="6" />
+                    <Label x:Name="LblBtnSixSelected" Text="" Grid.Row="6" Grid.Column="7" />
 
 
                     <!-- Totals -->
                     <Label Text="TOTAL SCORE" HorizontalOptions="Fill" Grid.Row="7" Grid.Column="1" Grid.ColumnSpan="2"/>
-                    <Label x:Name="TotalBeforeBonus" Text="" HorizontalOptions="Fill" Grid.Row="7" Grid.Column="5" Grid.ColumnSpan="2"/>
+                    <Label x:Name="TotalBeforeBonus" Text="" HorizontalOptions="Fill" Grid.Row="7" Grid.Column="7"/>
 
                     <Label Text="BONUS" HorizontalOptions="Fill" Grid.Row="8" Grid.Column="1" Grid.ColumnSpan="1"/>
                     <Label Text="If score >= 63" HorizontalOptions="Fill" Grid.Row="8" Grid.Column="2" Grid.ColumnSpan="2"/>
-                    <Label x:Name="Bonus" Text="" HorizontalOptions="Fill" Grid.Row="8" Grid.Column="5" Grid.ColumnSpan="2"/>
+                    <Label x:Name="Bonus" Text="" HorizontalOptions="Fill" Grid.Row="8" Grid.Column="7"/>
 
                     <Label Text="TOTAL OF UPPER SECTION" HorizontalOptions="Fill" Grid.Row="9" Grid.Column="1" Grid.ColumnSpan="4"/>
-                    <Label x:Name="TotalUpper"  Text="" HorizontalOptions="Fill" Grid.Row="9" Grid.Column="5" Grid.ColumnSpan="2"/>
-
-                    <!-- Game Scoring -->
-                    <Label Text="Game Scoring" HorizontalOptions="Center" FontAttributes="Bold" 
-                               Grid.Row="0" Grid.Column="4" Grid.ColumnSpan="3"/>
+                    <Label x:Name="TotalUpper"  Text="" HorizontalOptions="Fill" Grid.Row="9" Grid.Column="7"/>
                 </Grid>
                 <!-- End of Grid for Upper Section -->
                 
@@ -196,44 +201,56 @@
                     <Button x:Name="Btn_3Kind" Text="Select" Grid.Row="1" Grid.Column="4" 
                                 FontSize="Micro" Grid.ColumnSpan="2" HorizontalOptions="Center" Clicked="Btn_3Kind_Clicked"/>
                     <Label x:Name="Lbl3Kind" Text="0" Grid.Row="1" Grid.Column="6" />
+                    <Label x:Name="Lbl3KindSelected" Text="" Grid.Row="1" Grid.Column="7" />
 
                     <!-- 4Kind -->
                     <Label Text="4 of a Kind" HorizontalOptions="Fill" Grid.Row="2" Grid.Column="1" Grid.ColumnSpan="3"/>
                     <Button x:Name="Btn_4Kind" Text="Select" Grid.Row="2" Grid.Column="4" 
                                 FontSize="Micro" Grid.ColumnSpan="2" HorizontalOptions="Center" Clicked="Btn_4Kind_Clicked"/>
                     <Label x:Name="LblBtn4Kind" Text="0" Grid.Row="2" Grid.Column="6" />
+                    <Label x:Name="LblBtn4KindSelected" Text="" Grid.Row="2" Grid.Column="7" />
 
                     <!-- Full House -->
                     <Label Text="Full House" HorizontalOptions="Fill" Grid.Row="3" Grid.Column="1" Grid.ColumnSpan="3"/>
                     <Button x:Name="Btn_FullHouse" Text="Select" Grid.Row="3" Grid.Column="4" 
                                 FontSize="Micro" Grid.ColumnSpan="2" HorizontalOptions="Center" Clicked="Btn_FullHouse_Clicked"/>
                     <Label x:Name="LblBtnFullHouse" Text="0" Grid.Row="3" Grid.Column="6" />
+                    <Label x:Name="LblBtnFullHouseSelected" Text="" Grid.Row="3" Grid.Column="7" />
 
                     <!-- Sm Straight -->
                     <Label Text="Sm Straight" HorizontalOptions="Fill" Grid.Row="4" Grid.Column="1" Grid.ColumnSpan="3"/>
                     <Button x:Name="Btn_SmStraight" Text="Select" Grid.Row="4" Grid.Column="4" 
                                 FontSize="Micro" Grid.ColumnSpan="2" HorizontalOptions="Center" Clicked="Btn_SmStraight_Clicked"/>
                     <Label x:Name="LblBtnSmStraight" Text="0" Grid.Row="4" Grid.Column="6" />
+                    <Label x:Name="LblBtnSmStraightSelected" Text="" Grid.Row="4" Grid.Column="7" />
 
                     <!-- Lg Straight -->
                     <Label Text="Lg Straight" HorizontalOptions="Fill" Grid.Row="5" Grid.Column="1" Grid.ColumnSpan="3"/>
                     <Button x:Name="Btn_LgStraight" Text="Select" Grid.Row="5" Grid.Column="4" 
                                 FontSize="Micro" Grid.ColumnSpan="2" HorizontalOptions="Center" Clicked="Btn_LgStraight_Clicked"/>
                     <Label x:Name="LblBtnLgStraight" Text="0" Grid.Row="5" Grid.Column="6" />
+                    <Label x:Name="LblBtnLgStraightSelected" Text="" Grid.Row="5" Grid.Column="7" />
 
                     <!-- YAHTZEE -->
                     <Label Text="YAHTZEE" HorizontalOptions="Fill" Grid.Row="6" Grid.Column="1" Grid.ColumnSpan="3"/>
+                    <Button x:Name="Btn_YAHTZEE" Text="Select" Grid.Row="7" Grid.Column="4" 
+                                FontSize="Micro" Grid.ColumnSpan="2" HorizontalOptions="Center" Clicked="Btn_YAHTZEE_Clicked"/>
                     <Label x:Name="LblBtnYAHTZEE" Text="0" Grid.Row="6" Grid.Column="6" />
+                    <Label x:Name="LblBtnYAHTZEESelected" Text="" Grid.Row="6" Grid.Column="7" />
 
                     <!-- Chance -->
                     <Label Text="Chance" HorizontalOptions="Fill" Grid.Row="7" Grid.Column="1" Grid.ColumnSpan="3"/>
                     <Button x:Name="Btn_Chance" Text="Select" Grid.Row="7" Grid.Column="4" 
                                 FontSize="Micro" Grid.ColumnSpan="2" HorizontalOptions="Center" Clicked="Btn_Chance_Clicked"/>
                     <Label x:Name="LblBtnChance" Text="0" Grid.Row="7" Grid.Column="6" />
+                    <Label x:Name="LblBtnChanceSelected" Text="" Grid.Row="7" Grid.Column="7" />
 
                     <!-- Totals -->
                     <Label Text="Total of Lower Section" HorizontalOptions="Fill" Grid.Row="8" Grid.Column="1" Grid.ColumnSpan="3"/>
+                    <Label x:Name="TotalLower"  Text="" HorizontalOptions="Fill" Grid.Row="8" Grid.Column="7"/>
+                    
                     <Label Text="GRAND TOTAL" HorizontalOptions="Fill" Grid.Row="9" Grid.Column="1" Grid.ColumnSpan="3"/>
+                    <Label x:Name="TotalGRAND"  Text="" HorizontalOptions="Fill" Grid.Row="9" Grid.Column="7"/>
 
                 </Grid>
                 <!-- End of Grid for Lower Section -->
@@ -265,7 +282,7 @@
 
 <!-- ================================================================================================================================================================================== -->
                     <!-- Display -->
-                    <Label x:Name="DiceArea" HorizontalOptions="Center" Text="Click 'Roll Dice' to Start." Grid.Row="0" Grid.ColumnSpan="2"/>
+                    <Label x:Name="DiceArea" HorizontalOptions="Center" Text="Click Start Game" Grid.Row="0" Grid.ColumnSpan="2"/>
 
                     <!-- Dice 1 -->
                     <Image x:Name="DiceRoll1" Source="uri" Grid.Row="1" Grid.ColumnSpan="2"/>
