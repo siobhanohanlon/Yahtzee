@@ -237,20 +237,24 @@
                                 FontSize="Micro" Grid.ColumnSpan="2" HorizontalOptions="Center" Clicked="Btn_YAHTZEE_Clicked"/>
                     <Label x:Name="LblBtnYAHTZEE" Text="0" Grid.Row="6" Grid.Column="6" />
                     <Label x:Name="LblBtnYAHTZEESelected" Text="" Grid.Row="6" Grid.Column="7" />
+                    
+                    <!-- YAHTZEE BONUS -->
+                    <Label Text="YAHTZEE BONUS" HorizontalOptions="Fill" Grid.Row="7" Grid.Column="1" Grid.ColumnSpan="3"/>
+                    <Label x:Name="LblBtnYAHTZEEBONUS" Text="" Grid.Row="7" Grid.Column="7" />
 
                     <!-- Chance -->
-                    <Label Text="Chance" HorizontalOptions="Fill" Grid.Row="7" Grid.Column="1" Grid.ColumnSpan="3"/>
-                    <Button x:Name="Btn_Chance" Text="Select" Grid.Row="7" Grid.Column="4" 
+                    <Label Text="Chance" HorizontalOptions="Fill" Grid.Row="8" Grid.Column="1" Grid.ColumnSpan="3"/>
+                    <Button x:Name="Btn_Chance" Text="Select" Grid.Row="8" Grid.Column="4" 
                                 FontSize="Micro" Grid.ColumnSpan="2" HorizontalOptions="Center" Clicked="Btn_Chance_Clicked"/>
-                    <Label x:Name="LblBtnChance" Text="0" Grid.Row="7" Grid.Column="6" />
-                    <Label x:Name="LblBtnChanceSelected" Text="" Grid.Row="7" Grid.Column="7" />
+                    <Label x:Name="LblBtnChance" Text="0" Grid.Row="8" Grid.Column="6" />
+                    <Label x:Name="LblBtnChanceSelected" Text="" Grid.Row="8" Grid.Column="7" />
 
                     <!-- Totals -->
-                    <Label Text="Total of Lower Section" HorizontalOptions="Fill" Grid.Row="8" Grid.Column="1" Grid.ColumnSpan="3"/>
-                    <Label x:Name="TotalLower"  Text="" HorizontalOptions="Fill" Grid.Row="8" Grid.Column="7"/>
+                    <Label Text="Total of Lower Section" HorizontalOptions="Fill" Grid.Row="9" Grid.Column="1" Grid.ColumnSpan="3"/>
+                    <Label x:Name="TotalLower"  Text="" HorizontalOptions="Fill" Grid.Row="9" Grid.Column="7"/>
                     
-                    <Label Text="GRAND TOTAL" HorizontalOptions="Fill" Grid.Row="9" Grid.Column="1" Grid.ColumnSpan="3"/>
-                    <Label x:Name="TotalGRAND"  Text="" HorizontalOptions="Fill" Grid.Row="9" Grid.Column="7"/>
+                    <Label Text="GRAND TOTAL" HorizontalOptions="Fill" Grid.Row="10" Grid.Column="1" Grid.ColumnSpan="3"/>
+                    <Label x:Name="TotalGRAND"  Text="" HorizontalOptions="Fill" Grid.Row="10" Grid.Column="7"/>
 
                 </Grid>
                 <!-- End of Grid for Lower Section -->

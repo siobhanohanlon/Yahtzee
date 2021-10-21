@@ -14,15 +14,16 @@ namespace Yahtzee
         const string ROLL_DICE = "Roll Dice";
         const string NEW_GAME = "New Game";
         const string END_GO = "End of Go";
+        const int FULLHOUSE = 25, SMSTR = 30, LGSTR = 40, YAHTZEE = 50;
 
         //Variables
         int clicks = 0; //To End Turn after 3 goes
         int diceRoll1, diceRoll2, diceRoll3, diceRoll4, diceRoll5; //DiceRoll Variables
         int dieSelect1 = 0, dieSelect2 = 0, dieSelect3 = 0, dieSelect4 = 0, dieSelect5 = 0; //If 1 then die selected and wont change
         int ones, twos, threes, fours, fives, sixes; //Variables for keeping track of scores of upper section
-        int upSubtotal, upBonus, upTOTAL, lowerTotal=0, grandTOTAL; //Totals
-        int kind3, kind4, fullHouse = 25, smStr = 30, lgStr = 40, yahtzee = 50, chance; //Variables for keeping track of scores of lower section
-        int threeKind = 0, fourKind = 0, yAHTZEE = 0, houseFull = 0, strSM = 0, strLG = 0;//Checking if Conditions met
+        int upSubtotal, upBonus = 63, upTOTAL, lowerTotal=0, grandTOTAL; //Totals
+        int kind3, kind4, chance, yahBonus = 0; //Variables for keeping track of scores of lower section
+        int threeKind = 0, fourKind = 0, yahtzee = 0, fullHouse = 0, strSM = 0, strLG = 0;//Checking if Conditions met
 
         //Create instance of random
         Random random;
@@ -188,12 +189,12 @@ namespace Yahtzee
                     Btn_FullHouse.IsVisible = true;
                 }
 
-                if (smStr > 0 && Btn_SmStraight.IsEnabled == true)
+                if (strSM > 0 && Btn_SmStraight.IsEnabled == true)
                 {
                     Btn_SmStraight.IsVisible = true;
                 }
 
-                if (lgStr > 0 && Btn_LgStraight.IsEnabled == true)
+                if (strLG > 0 && Btn_LgStraight.IsEnabled == true)
                 {
                     Btn_LgStraight.IsVisible = true;
                 }
@@ -606,10 +607,10 @@ namespace Yahtzee
                      die2 == die4 && die4 == die5 && die1 == die3|| die3 == die4 && die4 == die5 && die1 == die2)
                 {
                     //Conditions Met
-                    houseFull = 1;
+                    fullHouse = 1;
 
                     //Display Score
-                    LblBtnFullHouse.Text = fullHouse.ToString();
+                    LblBtnFullHouse.Text = FULLHOUSE.ToString();
                 }
             }
 
@@ -617,13 +618,59 @@ namespace Yahtzee
             //Sm Straight
             if (Btn_SmStraight.IsEnabled == true)
             {
-                if (die1 == 1 && die2 == 2 && die3 ==3 && die4 ==4)
+                //1234
+                if(die1 == 1 || die2 == 1  || die3 == 1 || die4 ==1 || die5 == 1)
                 {
-                    //Conditions Met
-                    strSM = 1;
+                    if(die1 == 2 || die2 ==2 || die3 == 2 || die4 ==2 || die5 == 2)
+                    {
+                        if(die1 == 3 || die2 == 3 || die3 == 3 || die4 == 3 || die5 == 3)
+                        {
+                            if(die1 == 4 || die2 == 4 || die3 == 4 || die4 == 4 || die5 == 4)
+                            {
+                                //Conditions met
+                                strSM = 1;
+                            }
+                        }
+                    }
+                }
 
+                //2345
+                if (die1 == 2 || die2 == 2 || die3 == 2 || die4 == 2 || die5 == 2)
+                {
+                    if (die1 == 3 || die2 == 3 || die3 == 3 || die4 == 3 || die5 == 3)
+                    {
+                        if (die1 == 4 || die2 == 4 || die3 == 4 || die4 == 4 || die5 == 4)
+                        {
+                            if (die1 == 5 || die2 == 5 || die3 == 5 || die4 == 5 || die5 == 5)
+                            {
+                                //Conditions met
+                                strSM = 1;
+                            }
+                        }
+                    }
+                }
+
+                //3456
+                if (die1 == 3 || die2 == 3 || die3 == 3 || die4 == 3 || die5 == 3)
+                {
+                    if (die1 == 4 || die2 == 4 || die3 == 4 || die4 == 4 || die5 == 4)
+                    {
+                        if (die1 == 5 || die2 == 5 || die3 == 5 || die4 == 5 || die5 == 5)
+                        {
+                            if (die1 == 6 || die2 == 6 || die3 == 6 || die4 == 6 || die5 == 6)
+                            {
+                                //Conditions met
+                                strSM = 1;
+                            }
+                        }
+                    }
+                }
+
+                //Conditions met display score
+                if(strSM == 1)
+                {
                     //Display Score
-                    LblBtnSmStraight.Text = smStr.ToString();
+                    LblBtnSmStraight.Text = SMSTR.ToString();
                 }
             }
 
@@ -637,7 +684,7 @@ namespace Yahtzee
                     strLG = 1;
 
                     //Display Score
-                    LblBtnLgStraight.Text = lgStr.ToString();
+                    LblBtnLgStraight.Text = LGSTR.ToString();
                 }
             }
 
@@ -648,7 +695,7 @@ namespace Yahtzee
                 if (die1 == die2 && die2 == die3 && die3 == die4 && die4 == die5)
                 {
                     //Conditions Met
-                    yAHTZEE = 1;
+                    yahtzee = 1;
 
                     //Display Score
                     LblBtnYAHTZEE.Text = yahtzee.ToString();
@@ -742,7 +789,7 @@ namespace Yahtzee
             if (Btn_SmStraight.IsEnabled == false)
             {
                 LblBtnSmStraight.Text = "";
-                LblBtnSmStraightSelected.Text = smStr.ToString();
+                LblBtnSmStraightSelected.Text = SMSTR.ToString();
             }
 
             //----------------------------
@@ -750,7 +797,7 @@ namespace Yahtzee
             if (Btn_LgStraight.IsEnabled == false)
             {
                 LblBtnLgStraight.Text = "";
-                LblBtnLgStraightSelected.Text = lgStr.ToString();
+                LblBtnLgStraightSelected.Text = LGSTR.ToString();
             }
 
             //----------------------------
@@ -759,6 +806,16 @@ namespace Yahtzee
             {
                 LblBtnYAHTZEE.Text = "";
                 LblBtnYAHTZEESelected.Text = yahtzee.ToString();
+
+                //Yahtzee Bonus
+                if (die1 == die2 && die2 == die3 && die3 == die4 && die4 == die5)
+                {
+                    //Update Bonus
+                    yahBonus += 100;
+
+                    //Update Text
+                    LblBtnYAHTZEEBONUS.Text = yahBonus.ToString();
+                }
             }
 
             //----------------------------
@@ -778,7 +835,7 @@ namespace Yahtzee
                 Bonus.Text = "63";
 
                 //Add Bonus to up total
-                upTOTAL = upSubtotal + 63;
+                upTOTAL = upSubtotal + upBonus;
             }
 
             else
@@ -1282,7 +1339,20 @@ namespace Yahtzee
         //Select FullHouse
         private void Btn_FullHouse_Clicked(object sender, EventArgs e)
         {
+            if (fullHouse == 1)
+            {
+                //Add to lower total
+                lowerTotal += fullHouse;
 
+                //Disable Button
+                Btn_FullHouse.IsEnabled = false;
+
+                //Change Text to Show its Seleted
+                Btn_FullHouse.Text = "Selected";
+
+                //New Go
+                NewGo();
+            }
         }
 
         //Select smStraight
@@ -1300,7 +1370,7 @@ namespace Yahtzee
         //Select Yahtzee
         private void Btn_YAHTZEE_Clicked(object sender, EventArgs e)
         {
-            if (yAHTZEE == 1)
+            if (yahtzee == 1)
             {
                 //Add to lower total
                 lowerTotal += yahtzee;
