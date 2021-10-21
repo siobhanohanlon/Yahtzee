@@ -200,8 +200,8 @@
                     <Label Text="3 of a Kind" HorizontalOptions="Fill" Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="3"/>
                     <Button x:Name="Btn_3Kind" Text="Select" Grid.Row="1" Grid.Column="4" 
                                 FontSize="Micro" Grid.ColumnSpan="2" HorizontalOptions="Center" Clicked="Btn_3Kind_Clicked"/>
-                    <Label x:Name="Lbl3Kind" Text="0" Grid.Row="1" Grid.Column="6" />
-                    <Label x:Name="Lbl3KindSelected" Text="" Grid.Row="1" Grid.Column="7" />
+                    <Label x:Name="LblBtn3Kind" Text="0" Grid.Row="1" Grid.Column="6" />
+                    <Label x:Name="LblBtn3KindSelected" Text="" Grid.Row="1" Grid.Column="7" />
 
                     <!-- 4Kind -->
                     <Label Text="4 of a Kind" HorizontalOptions="Fill" Grid.Row="2" Grid.Column="1" Grid.ColumnSpan="3"/>
@@ -233,7 +233,7 @@
 
                     <!-- YAHTZEE -->
                     <Label Text="YAHTZEE" HorizontalOptions="Fill" Grid.Row="6" Grid.Column="1" Grid.ColumnSpan="3"/>
-                    <Button x:Name="Btn_YAHTZEE" Text="Select" Grid.Row="7" Grid.Column="4" 
+                    <Button x:Name="Btn_YAHTZEE" Text="Select" Grid.Row="6" Grid.Column="4" 
                                 FontSize="Micro" Grid.ColumnSpan="2" HorizontalOptions="Center" Clicked="Btn_YAHTZEE_Clicked"/>
                     <Label x:Name="LblBtnYAHTZEE" Text="0" Grid.Row="6" Grid.Column="6" />
                     <Label x:Name="LblBtnYAHTZEESelected" Text="" Grid.Row="6" Grid.Column="7" />

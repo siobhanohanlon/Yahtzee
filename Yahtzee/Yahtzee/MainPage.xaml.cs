@@ -21,8 +21,8 @@ namespace Yahtzee
         int dieSelect1 = 0, dieSelect2 = 0, dieSelect3 = 0, dieSelect4 = 0, dieSelect5 = 0; //If 1 then die selected and wont change
         int ones, twos, threes, fours, fives, sixes; //Variables for keeping track of scores of upper section
         int upSubtotal, upBonus, upTOTAL, lowerTotal=0, grandTOTAL; //Totals
-        int kind3, kind4, fullHouse, smStr, lgStr, yahtzee, chance; //Variables for keeping track of scores of lower section
-        int threeKind=0;//Checking if Conditions met
+        int kind3, kind4, fullHouse = 25, smStr = 30, lgStr = 40, yahtzee = 50, chance; //Variables for keeping track of scores of lower section
+        int threeKind = 0, fourKind = 0, yAHTZEE = 0, houseFull = 0, strSM = 0, strLG = 0;//Checking if Conditions met
 
         //Create instance of random
         Random random;
@@ -31,6 +31,16 @@ namespace Yahtzee
         public MainPage()
         {
             InitializeComponent();
+
+            //Hide Buttons
+            MakeInvisable(0);
+
+            //Make Select Die Visible
+            Dice1Select.IsVisible = false;
+            Dice2Select.IsVisible = false;
+            Dice3Select.IsVisible = false;
+            Dice4Select.IsVisible = false;
+            Dice5Select.IsVisible = false;
         }
 
         //----------------------------------------------------------------------------------------------------------------------------------------
@@ -71,6 +81,13 @@ namespace Yahtzee
 
             //Make Buttons Visible
             MakeInvisable(1);
+
+            //Make Select Die Invisible
+            Dice1Select.IsVisible = false;
+            Dice2Select.IsVisible = false;
+            Dice3Select.IsVisible = false;
+            Dice4Select.IsVisible = false;
+            Dice5Select.IsVisible = false;
         }
 
         //New Go
@@ -103,6 +120,7 @@ namespace Yahtzee
         }
 
         //----------------------------------------------------------------------------------------------------------
+        //Make select buttons visable/invisable
         private void MakeInvisable(int decide)
         {
             if (decide == 0)
@@ -124,19 +142,71 @@ namespace Yahtzee
 
             else
             {
-                Btn_Ones.IsVisible = true;
-                Btn_Twos.IsVisible = true;
-                Btn_Threes.IsVisible = true;
-                Btn_Fours.IsVisible = true;
-                Btn_Fives.IsVisible = true;
-                Btn_Sixes.IsVisible = true;
-                Btn_3Kind.IsVisible = true;
-                Btn_4Kind.IsVisible = true;
-                Btn_FullHouse.IsVisible = true;
-                Btn_SmStraight.IsVisible = true;
-                Btn_LgStraight.IsVisible = true;
-                Btn_YAHTZEE.IsVisible = true;
-                Btn_Chance.IsVisible = true;
+                //If Conditions met make button visible
+                if(ones > 0 && Btn_Ones.IsEnabled == true)
+                {
+                    Btn_Ones.IsVisible = true;
+                }
+
+                if(twos > 0 && Btn_Twos.IsEnabled == true)
+                {
+                    Btn_Twos.IsVisible = true;
+                }
+
+                if (threes > 0 && Btn_Threes.IsEnabled == true)
+                {
+                    Btn_Threes.IsVisible = true;
+                }
+
+                if (fours > 0 && Btn_Fours.IsEnabled == true)
+                {
+                    Btn_Fours.IsVisible = true;
+                }
+
+                if (fives > 0 && Btn_Fives.IsEnabled == true)
+                {
+                    Btn_Fives.IsVisible = true;
+                }
+
+                if (sixes > 0 && Btn_Sixes.IsEnabled == true)
+                {
+                    Btn_Sixes.IsVisible = true;
+                }
+
+                if (kind3 > 0 && Btn_3Kind.IsEnabled == true)
+                {
+                    Btn_3Kind.IsVisible = true;
+                }
+
+                if (kind4 > 0 && Btn_4Kind.IsEnabled == true)
+                {
+                    Btn_4Kind.IsVisible = true;
+                }
+
+                if (fullHouse > 0 && Btn_FullHouse.IsEnabled == true)
+                {
+                    Btn_FullHouse.IsVisible = true;
+                }
+
+                if (smStr > 0 && Btn_SmStraight.IsEnabled == true)
+                {
+                    Btn_SmStraight.IsVisible = true;
+                }
+
+                if (lgStr > 0 && Btn_LgStraight.IsEnabled == true)
+                {
+                    Btn_LgStraight.IsVisible = true;
+                }
+
+                if (yahtzee > 0 && Btn_YAHTZEE.IsEnabled == true)
+                {
+                    Btn_YAHTZEE.IsVisible = true;
+                }
+
+                if (chance > 0 && Btn_Chance.IsEnabled == true)
+                {
+                    Btn_Chance.IsVisible = true;
+                }
             }
         }
 
@@ -184,6 +254,16 @@ namespace Yahtzee
         //Roll Dice 3 Times
         private void RollDice(int i)
         {
+            //Display Roll Number
+            DiceArea.Text = "Roll #" + i ;
+
+            //Make Select Die Visible
+            Dice1Select.IsVisible = true;
+            Dice2Select.IsVisible = true;
+            Dice3Select.IsVisible = true;
+            Dice4Select.IsVisible = true;
+            Dice5Select.IsVisible = true;
+
             //If Random not initialized
             if (random == null)
             {
@@ -478,41 +558,111 @@ namespace Yahtzee
             //3Kind
             if (Btn_3Kind.IsEnabled == true)
             {
-               if (die1  == die2 && die2 == die3 || die1 == die2 && die2 == die4 ||
-                    die1 == die2 && die2 == die5 || die1 == die3 && die3 == die4 ||
-                    die1 == die3 && die3 == die5 || die1 == die4 && die4 == die5)
-               {
-                    //Set Score
-                    kind3 = die1 * 3;
-
-                    //Conditions Met
-                    threeKind = 1;
-               }
-
-               if(die2 == die3 && die3 == die4 || die2 == die3 && die3 == die5 ||
-                  die2 == die4 && die4 == die5)
+                //Check if you have a 3 of kind
+                if (die1  == die2 && die2 == die3 || die1 == die2 && die2 == die4 ||
+                     die1 == die2 && die2 == die5 || die1 == die3 && die3 == die4 ||
+                     die1 == die3 && die3 == die5 || die1 == die4 && die4 == die5 ||
+                     die2 == die3 && die3 == die4 || die2 == die3 && die3 == die5 ||
+                     die2 == die4 && die4 == die5 || die3 == die4 && die4 == die5)
                 {
                     //Set Score
-                    kind3 = die2 * 3;
+                    kind3 = die1 + die2 + die3 + die4 + die5;
 
                     //Conditions Met
                     threeKind = 1;
                 }
 
-               if(die3 == die4 && die4 == die5)
-                {
-                    //Set Score
-                    kind3 = die3 * 3;
-
-                    //Conditions Met
-                    threeKind = 1;
-                }
-
-                lowerTotal += kind3;
-                Lbl3Kind.Text = kind3.ToString();
+                //Display Score
+                LblBtn3Kind.Text = kind3.ToString();
             }
 
+            //----------------------------
+            //4Kind
+            if (Btn_4Kind.IsEnabled == true)
+            {
+                if (die1 == die2 && die2 == die3 && die3 == die4|| die1 == die2 && die2 == die3 && die3 == die5
+                    || die2 == die3 && die3 == die4 && die4 == die5)
+                {
+                    //Set Score
+                    kind4 = die1 + die2 + die3 + die4 + die5;
 
+                    //Conditions Met
+                    fourKind = 1;
+                }
+
+                //Display Score
+                LblBtn4Kind.Text = kind4.ToString();
+            }
+
+            //----------------------------
+            //Full House
+            if (Btn_FullHouse.IsEnabled == true)
+            {
+                //Check if conditions met
+                if ( die1 == die2 && die2 == die3 && die4 == die5|| die1 == die2 && die2 == die4 && die3 == die5||
+                     die1 == die2 && die2 == die5 && die3 == die4|| die1 == die3 && die3 == die4 && die2 == die5||
+                     die1 == die3 && die3 == die5 && die2 == die4|| die1 == die4 && die4 == die5 && die2 == die3||
+                     die2 == die3 && die3 == die4 && die1 == die5|| die2 == die3 && die3 == die5 && die1 == die4||
+                     die2 == die4 && die4 == die5 && die1 == die3|| die3 == die4 && die4 == die5 && die1 == die2)
+                {
+                    //Conditions Met
+                    houseFull = 1;
+
+                    //Display Score
+                    LblBtnFullHouse.Text = fullHouse.ToString();
+                }
+            }
+
+            //----------------------------
+            //Sm Straight
+            if (Btn_SmStraight.IsEnabled == true)
+            {
+                if (die1 == 1 && die2 == 2 && die3 ==3 && die4 ==4)
+                {
+                    //Conditions Met
+                    strSM = 1;
+
+                    //Display Score
+                    LblBtnSmStraight.Text = smStr.ToString();
+                }
+            }
+
+            //----------------------------
+            //Lg Straight
+            if (Btn_LgStraight.IsEnabled == true)
+            {
+                if (ones == 1 && twos == 2 && threes == 3 && fours == 4 && fives == 5)
+                {
+                    //Conditions Met
+                    strLG = 1;
+
+                    //Display Score
+                    LblBtnLgStraight.Text = lgStr.ToString();
+                }
+            }
+
+            //----------------------------
+            //YAHTZEE
+            if (Btn_YAHTZEE.IsEnabled == true)
+            {
+                if (die1 == die2 && die2 == die3 && die3 == die4 && die4 == die5)
+                {
+                    //Conditions Met
+                    yAHTZEE = 1;
+
+                    //Display Score
+                    LblBtnYAHTZEE.Text = yahtzee.ToString();
+                }
+            }
+
+            //----------------------------
+            //Chance
+            if (Btn_Chance.IsEnabled == true)
+            {
+                chance = die1 + die2 + die3 + die4 + die5;
+                
+                LblBtnChance.Text = chance.ToString();
+            }
 
             //------------------------------------------------------
             //Display Score after selected
@@ -561,6 +711,62 @@ namespace Yahtzee
             {
                 LblBtnSix.Text = "";
                 LblBtnSixSelected.Text = sixes.ToString();
+            }
+
+            //----------------------------
+            //3Kind
+            if (Btn_3Kind.IsEnabled == false)
+            {
+                LblBtn3Kind.Text = "";
+                LblBtn3KindSelected.Text = kind3.ToString();
+            }
+
+            //----------------------------
+            //4Kind
+            if (Btn_4Kind.IsEnabled == false)
+            {
+                LblBtn4Kind.Text = "";
+                LblBtn4KindSelected.Text = kind4.ToString();
+            }
+
+            //----------------------------
+            //Full House
+            if (Btn_FullHouse.IsEnabled == false)
+            {
+                LblBtnFullHouse.Text = "";
+                LblBtnFullHouseSelected.Text = fullHouse.ToString();
+            }
+
+            //----------------------------
+            //Small Straight
+            if (Btn_SmStraight.IsEnabled == false)
+            {
+                LblBtnSmStraight.Text = "";
+                LblBtnSmStraightSelected.Text = smStr.ToString();
+            }
+
+            //----------------------------
+            //Large Straight
+            if (Btn_LgStraight.IsEnabled == false)
+            {
+                LblBtnLgStraight.Text = "";
+                LblBtnLgStraightSelected.Text = lgStr.ToString();
+            }
+
+            //----------------------------
+            //Yahtzee
+            if (Btn_YAHTZEE.IsEnabled == false)
+            {
+                LblBtnYAHTZEE.Text = "";
+                LblBtnYAHTZEESelected.Text = yahtzee.ToString();
+            }
+
+            //----------------------------
+            //Chance
+            if (Btn_Chance.IsEnabled == false)
+            {
+                LblBtnChance.Text = "";
+                LblBtnChanceSelected.Text = chance.ToString();
             }
 
             //Update Totals
@@ -1040,6 +1246,9 @@ namespace Yahtzee
         {
             if (threeKind == 1)
             {
+                //Add to lower total
+                lowerTotal += kind3;
+
                 //Disable Button
                 Btn_3Kind.IsEnabled = false;
 
@@ -1049,18 +1258,25 @@ namespace Yahtzee
                 //New Go
                 NewGo();
             }
-
-            else
-            {
-                DiceArea.Text = "Conditions not Met!!";
-                Btn_3Kind.IsVisible = false;
-            }
         }
 
         //Select 4Kind
         private void Btn_4Kind_Clicked(object sender, EventArgs e)
         {
+            if (fourKind == 1)
+            {
+                //Add to lower total
+                lowerTotal += kind4;
 
+                //Disable Button
+                Btn_4Kind.IsEnabled = false;
+
+                //Change Text to Show its Seleted
+                Btn_4Kind.Text = "Selected";
+
+                //New Go
+                NewGo();
+            }
         }
 
         //Select FullHouse
@@ -1084,13 +1300,36 @@ namespace Yahtzee
         //Select Yahtzee
         private void Btn_YAHTZEE_Clicked(object sender, EventArgs e)
         {
+            if (yAHTZEE == 1)
+            {
+                //Add to lower total
+                lowerTotal += yahtzee;
 
+                //Disable Button
+                Btn_YAHTZEE.IsEnabled = false;
+
+                //Change Text to Show its Seleted
+                Btn_YAHTZEE.Text = "Selected";
+
+                //New Go
+                NewGo();
+            }
         }
 
         //Select Chance
         private void Btn_Chance_Clicked(object sender, EventArgs e)
         {
+            //Add to total
+            lowerTotal += chance;
 
+            //Disable Button
+            Btn_Chance.IsEnabled = false;
+
+            //Change Text to Show its Seleted
+            Btn_Chance.Text = "Selected";
+
+            //New Go
+            NewGo();
         }
 
     }//End of Main
