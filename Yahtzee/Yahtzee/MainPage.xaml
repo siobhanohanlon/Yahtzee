@@ -5,15 +5,16 @@
 
     <!--  main content stack layout  -->
     <StackLayout>
-        <Frame BackgroundColor="BlanchedAlmond" Padding="20" CornerRadius="10">
+        <!-- Gameboard -->
+        <Frame x:Name="GameBoard" BackgroundColor="#d5e1df" Padding="20" CornerRadius="10">
 
             <!--  Grid for the game board  -->
-            <Grid BackgroundColor="Gray" HeightRequest="1100" 
+            <Grid BackgroundColor="#86af49" HeightRequest="1100" 
                   WidthRequest="850" HorizontalOptions="Center" 
                   VerticalOptions="Center" ColumnSpacing="1" 
                   RowSpacing="1">
 
-                <!-- Columns 9 -->
+                <!-- Columns -->
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition/>
                     <ColumnDefinition/>
@@ -25,7 +26,7 @@
                     <ColumnDefinition/>
                 </Grid.ColumnDefinitions>
 
-                <!-- Row 19-->
+                <!-- Row -->
                 <Grid.RowDefinitions>
                     <RowDefinition/>
                     <RowDefinition/>
@@ -53,9 +54,9 @@
                 <!-- Grid for Upper Section -->
                 <Grid Grid.Row="0" Grid.Column="0" 
                           Grid.RowSpan="13" Grid.ColumnSpan="7" 
-                          BackgroundColor="#FFBDB76B" Opacity="80">
+                          BackgroundColor="#86af49" Opacity="80">
 
-                    <!-- Columns 7 -->
+                    <!-- Columns -->
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition/>
                         <ColumnDefinition/>
@@ -66,7 +67,7 @@
                         <ColumnDefinition/>
                     </Grid.ColumnDefinitions>
 
-                    <!-- Row 10-->
+                    <!-- Row -->
                     <Grid.RowDefinitions>
                         <RowDefinition/>
                         <RowDefinition/>
@@ -93,7 +94,7 @@
                     <Image Source="DiceImages/Dice1.png" HorizontalOptions="Start"
                                    Grid.Row="1" Grid.Column="2" Grid.ColumnSpan="1"/>
                     <Button x:Name="Btn_Ones" Text="Select" Grid.Row="1" Grid.Column="4" 
-                                    FontSize="Micro" Grid.ColumnSpan="2" HorizontalOptions="Center" Clicked="Btn_Ones_Clicked"/>
+                            Grid.ColumnSpan="2" HorizontalOptions="Center" Clicked="Btn_Ones_Clicked"/>
                     <Label x:Name="LblBtnOne" Text="0" Grid.Row="1" Grid.Column="6" />
                     <Label x:Name="LblBtnOneSelected" Text="" Grid.Row="1" Grid.Column="7" />
 
@@ -103,7 +104,7 @@
                     <Image Source="DiceImages/Dice2.png"  HorizontalOptions="Start"
                                    Grid.Row="2" Grid.Column="2" Grid.ColumnSpan="1"/>
                     <Button x:Name="Btn_Twos" Text="Select" Grid.Row="2" Grid.Column="4" 
-                                    FontSize="Micro" Grid.ColumnSpan="2" HorizontalOptions="Center" Clicked="Btn_Twos_Clicked"/>
+                            Grid.ColumnSpan="2" HorizontalOptions="Center" Clicked="Btn_Twos_Clicked"/>
                     <Label x:Name="LblBtnTwo" Text="0" Grid.Row="2" Grid.Column="6" />
                     <Label x:Name="LblBtnTwoSelected" Text="" Grid.Row="2" Grid.Column="7" />
 
@@ -113,7 +114,7 @@
                     <Image Source="DiceImages/Dice3.png" HorizontalOptions="Start"
                                    Grid.Row="3" Grid.Column="2" Grid.ColumnSpan="1"/>
                     <Button x:Name="Btn_Threes" Text="Select" Grid.Row="3" Grid.Column="4" 
-                                    FontSize="Micro" Grid.ColumnSpan="2" HorizontalOptions="Center" Clicked="Btn_Threes_Clicked"/>
+                            Grid.ColumnSpan="2" HorizontalOptions="Center" Clicked="Btn_Threes_Clicked"/>
                     <Label x:Name="LblBtnThree" Text="0" Grid.Row="3" Grid.Column="6" />
                     <Label x:Name="LblBtnThreeSelected" Text="" Grid.Row="3" Grid.Column="7" />
 
@@ -123,7 +124,7 @@
                     <Image Source="DiceImages/Dice4.png" HorizontalOptions="Start"
                                    Grid.Row="4" Grid.Column="2" Grid.ColumnSpan="1"/>
                     <Button x:Name="Btn_Fours" Text="Select" Grid.Row="4" Grid.Column="4" 
-                                    FontSize="Micro" Grid.ColumnSpan="2" HorizontalOptions="Center" Clicked="Btn_Fours_Clicked"/>
+                            Grid.ColumnSpan="2" HorizontalOptions="Center" Clicked="Btn_Fours_Clicked"/>
                     <Label x:Name="LblBtnFour" Text="0" Grid.Row="4" Grid.Column="6" />
                     <Label x:Name="LblBtnFourSelected" Text="" Grid.Row="4" Grid.Column="7" />
 
@@ -133,7 +134,7 @@
                     <Image Source="DiceImages/Dice5.png" HorizontalOptions="Start"
                                    Grid.Row="5" Grid.Column="2" Grid.ColumnSpan="1"/>
                     <Button x:Name="Btn_Fives" Text="Select" Grid.Row="5" Grid.Column="4" 
-                                    FontSize="Micro" Grid.ColumnSpan="2" HorizontalOptions="Center" Clicked="Btn_Fives_Clicked"/>
+                            Grid.ColumnSpan="2" HorizontalOptions="Center" Clicked="Btn_Fives_Clicked"/>
                     <Label x:Name="LblBtnFive" Text="0" Grid.Row="5" Grid.Column="6" />
                     <Label x:Name="LblBtnFiveSelected" Text="" Grid.Row="5" Grid.Column="7" />
 
@@ -143,7 +144,7 @@
                     <Image Source="DiceImages/Dice6.png" HorizontalOptions="Start"
                                    Grid.Row="6" Grid.Column="2" Grid.ColumnSpan="1"/>
                     <Button x:Name="Btn_Sixes" Text="Select" Grid.Row="6" Grid.Column="4" 
-                                    FontSize="Micro" Grid.ColumnSpan="2" HorizontalOptions="Center" Clicked="Btn_Sixes_Clicked"/>
+                            Grid.ColumnSpan="2" HorizontalOptions="Center" Clicked="Btn_Sixes_Clicked"/>
                     <Label x:Name="LblBtnSix" Text="0" Grid.Row="6" Grid.Column="6" />
                     <Label x:Name="LblBtnSixSelected" Text="" Grid.Row="6" Grid.Column="7" />
 
@@ -165,10 +166,10 @@
 
                 <!-- Grid for Lower Section -->
                 <Grid Grid.Row="13" Grid.Column="0" 
-                          Grid.RowSpan="13" Grid.ColumnSpan="7" 
-                          BackgroundColor="#FFBDB76B" Opacity="80">
+                          Grid.RowSpan="14" Grid.ColumnSpan="7" 
+                          BackgroundColor="#86af49" Opacity="80">
 
-                    <!-- Columns 7 -->
+                    <!-- Columns -->
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition/>
                         <ColumnDefinition/>
@@ -179,7 +180,7 @@
                         <ColumnDefinition/>
                     </Grid.ColumnDefinitions>
 
-                    <!-- Row 10 -->
+                    <!-- Row -->
                     <Grid.RowDefinitions>
                         <RowDefinition/>
                         <RowDefinition/>
@@ -199,43 +200,43 @@
 
                     <!-- 3Kind -->
                     <Label Text="3 of a Kind" HorizontalOptions="Fill" Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="3"/>
-                    <Button x:Name="Btn_3Kind" Text="Select" Grid.Row="1" Grid.Column="4" 
-                                FontSize="Micro" Grid.ColumnSpan="2" HorizontalOptions="Center" Clicked="Btn_3Kind_Clicked"/>
+                    <Button x:Name="Btn_3Kind" Text="Select" Grid.Row="1" Grid.Column="4"
+                            Grid.ColumnSpan="2" HorizontalOptions="Center" Clicked="Btn_3Kind_Clicked"/>
                     <Label x:Name="LblBtn3Kind" Text="0" Grid.Row="1" Grid.Column="6" />
                     <Label x:Name="LblBtn3KindSelected" Text="" Grid.Row="1" Grid.Column="7" />
 
                     <!-- 4Kind -->
                     <Label Text="4 of a Kind" HorizontalOptions="Fill" Grid.Row="2" Grid.Column="1" Grid.ColumnSpan="3"/>
                     <Button x:Name="Btn_4Kind" Text="Select" Grid.Row="2" Grid.Column="4" 
-                                FontSize="Micro" Grid.ColumnSpan="2" HorizontalOptions="Center" Clicked="Btn_4Kind_Clicked"/>
+                            Grid.ColumnSpan="2" HorizontalOptions="Center" Clicked="Btn_4Kind_Clicked"/>
                     <Label x:Name="LblBtn4Kind" Text="0" Grid.Row="2" Grid.Column="6" />
                     <Label x:Name="LblBtn4KindSelected" Text="" Grid.Row="2" Grid.Column="7" />
 
                     <!-- Full House -->
                     <Label Text="Full House" HorizontalOptions="Fill" Grid.Row="3" Grid.Column="1" Grid.ColumnSpan="3"/>
                     <Button x:Name="Btn_FullHouse" Text="Select" Grid.Row="3" Grid.Column="4" 
-                                FontSize="Micro" Grid.ColumnSpan="2" HorizontalOptions="Center" Clicked="Btn_FullHouse_Clicked"/>
+                            Grid.ColumnSpan="2" HorizontalOptions="Center" Clicked="Btn_FullHouse_Clicked"/>
                     <Label x:Name="LblBtnFullHouse" Text="0" Grid.Row="3" Grid.Column="6" />
                     <Label x:Name="LblBtnFullHouseSelected" Text="" Grid.Row="3" Grid.Column="7" />
 
                     <!-- Sm Straight -->
                     <Label Text="Sm Straight" HorizontalOptions="Fill" Grid.Row="4" Grid.Column="1" Grid.ColumnSpan="3"/>
                     <Button x:Name="Btn_SmStraight" Text="Select" Grid.Row="4" Grid.Column="4" 
-                                FontSize="Micro" Grid.ColumnSpan="2" HorizontalOptions="Center" Clicked="Btn_SmStraight_Clicked"/>
+                            Grid.ColumnSpan="2" HorizontalOptions="Center" Clicked="Btn_SmStraight_Clicked"/>
                     <Label x:Name="LblBtnSmStraight" Text="0" Grid.Row="4" Grid.Column="6" />
                     <Label x:Name="LblBtnSmStraightSelected" Text="" Grid.Row="4" Grid.Column="7" />
 
                     <!-- Lg Straight -->
                     <Label Text="Lg Straight" HorizontalOptions="Fill" Grid.Row="5" Grid.Column="1" Grid.ColumnSpan="3"/>
                     <Button x:Name="Btn_LgStraight" Text="Select" Grid.Row="5" Grid.Column="4" 
-                                FontSize="Micro" Grid.ColumnSpan="2" HorizontalOptions="Center" Clicked="Btn_LgStraight_Clicked"/>
+                            Grid.ColumnSpan="2" HorizontalOptions="Center" Clicked="Btn_LgStraight_Clicked"/>
                     <Label x:Name="LblBtnLgStraight" Text="0" Grid.Row="5" Grid.Column="6" />
                     <Label x:Name="LblBtnLgStraightSelected" Text="" Grid.Row="5" Grid.Column="7" />
 
                     <!-- YAHTZEE -->
                     <Label Text="YAHTZEE" HorizontalOptions="Fill" Grid.Row="6" Grid.Column="1" Grid.ColumnSpan="3"/>
                     <Button x:Name="Btn_YAHTZEE" Text="Select" Grid.Row="6" Grid.Column="4" 
-                                FontSize="Micro" Grid.ColumnSpan="2" HorizontalOptions="Center" Clicked="Btn_YAHTZEE_Clicked"/>
+                            Grid.ColumnSpan="2" HorizontalOptions="Center" Clicked="Btn_YAHTZEE_Clicked"/>
                     <Label x:Name="LblBtnYAHTZEE" Text="0" Grid.Row="6" Grid.Column="6" />
                     <Label x:Name="LblBtnYAHTZEESelected" Text="" Grid.Row="6" Grid.Column="7" />
                     
@@ -246,7 +247,7 @@
                     <!-- Chance -->
                     <Label Text="Chance" HorizontalOptions="Fill" Grid.Row="8" Grid.Column="1" Grid.ColumnSpan="3"/>
                     <Button x:Name="Btn_Chance" Text="Select" Grid.Row="8" Grid.Column="4" 
-                                FontSize="Micro" Grid.ColumnSpan="2" HorizontalOptions="Center" Clicked="Btn_Chance_Clicked"/>
+                            Grid.ColumnSpan="2" HorizontalOptions="Center" Clicked="Btn_Chance_Clicked"/>
                     <Label x:Name="LblBtnChance" Text="0" Grid.Row="8" Grid.Column="6" />
                     <Label x:Name="LblBtnChanceSelected" Text="" Grid.Row="8" Grid.Column="7" />
 
@@ -263,14 +264,14 @@
 <!-- ================================================================================================================================================================================== -->
 
                 <!-- Roll Dice Area -->
-                <Grid Grid.Column="7" Grid.Row="1" Grid.RowSpan="24">
+                <Grid BackgroundColor="#b5e7a0" Grid.Column="7" Grid.Row="0" Grid.RowSpan="27">
 
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition/>
                         <ColumnDefinition/>
                     </Grid.ColumnDefinitions>
 
-                    <!-- Row 7-->
+                    <!-- Row -->
                     <Grid.RowDefinitions>
                         <RowDefinition/>
                         <RowDefinition/>
@@ -287,36 +288,93 @@
 
 <!-- ================================================================================================================================================================================== -->
                     <!-- Display -->
-                    <Label x:Name="DiceArea" HorizontalOptions="Center" Text="Click Start Game" Grid.Row="0" Grid.ColumnSpan="2"/>
-
+                    <Button x:Name="NewGame" Text="New Game" Grid.Row="0" BackgroundColor="#e3eaa7" Grid.ColumnSpan="2" Clicked="NewGame_Clicked"/>
+                    <Label x:Name="DiceArea" HorizontalOptions="Center" Text="Click Start Game" Grid.Row="1" Grid.ColumnSpan="2"/>
+                    
                     <!-- Dice 1 -->
-                    <Image x:Name="DiceRoll1" Source="uri" Grid.Row="1" Grid.ColumnSpan="2"/>
-                    <Button x:Name="Dice1Select" Text="Select" Background="Transparent" Grid.Row="2" Grid.RowSpan="1" Grid.ColumnSpan="2" Clicked="Dice1Select_Clicked"></Button>
+                    <Image x:Name="DiceRoll1" Source="uri" Grid.Row="2" Grid.ColumnSpan="2"/>
+                    <Button x:Name="Dice1Select" Text="Select" Background="Transparent" Grid.Row="3" Grid.RowSpan="1" Grid.ColumnSpan="2" Clicked="Dice1Select_Clicked"/>
 
                     <!-- Dice 2 -->
-                    <Image x:Name="DiceRoll2" Source="uri" Grid.Row="3" Grid.ColumnSpan="2"/>
-                    <Button x:Name="Dice2Select" Text="Select" Background="Transparent" Grid.Row="4" Grid.RowSpan="1" Grid.ColumnSpan="2" Clicked="Dice2Select_Clicked"></Button>
+                    <Image x:Name="DiceRoll2" Source="uri" Grid.Row="4" Grid.ColumnSpan="2"/>
+                    <Button x:Name="Dice2Select" Text="Select" Background="Transparent" Grid.Row="5" Grid.RowSpan="1" Grid.ColumnSpan="2" Clicked="Dice2Select_Clicked"/>
 
                     <!-- Dice 3 -->
-                    <Image x:Name="DiceRoll3" Source="uri" Grid.Row="5" Grid.ColumnSpan="2"/>
-                    <Button x:Name="Dice3Select" Text="Select" Background="Transparent" Grid.Row="6" Grid.RowSpan="1" Grid.ColumnSpan="2" Clicked="Dice3Select_Clicked"></Button>
+                    <Image x:Name="DiceRoll3" Source="uri" Grid.Row="6" Grid.ColumnSpan="2"/>
+                    <Button x:Name="Dice3Select" Text="Select" Background="Transparent" Grid.Row="7" Grid.RowSpan="1" Grid.ColumnSpan="2" Clicked="Dice3Select_Clicked"/>
 
                     <!-- Dice 4 -->
-                    <Image x:Name="DiceRoll4" Source="uri" Grid.Row="7" Grid.ColumnSpan="2"/>
-                    <Button x:Name="Dice4Select" Text="Select" Background="Transparent" Grid.Row="8" Grid.RowSpan="1" Grid.ColumnSpan="2" Clicked="Dice4Select_Clicked"></Button>
+                    <Image x:Name="DiceRoll4" Source="uri" Grid.Row="8" Grid.ColumnSpan="2"/>
+                    <Button x:Name="Dice4Select" Text="Select" Background="Transparent" Grid.Row="9" Grid.RowSpan="1" Grid.ColumnSpan="2" Clicked="Dice4Select_Clicked"/>
 
                     <!-- Dice 5 -->
-                    <Image x:Name="DiceRoll5" Source="uri" Grid.Row="9" Grid.ColumnSpan="2"/>
-                    <Button x:Name="Dice5Select" Text="Select" Background="Transparent" Grid.Row="10" Grid.RowSpan="1" Grid.ColumnSpan="2" Clicked="Dice5Select_Clicked"></Button>
+                    <Image x:Name="DiceRoll5" Source="uri" Grid.Row="10" Grid.ColumnSpan="2"/>
+                    <Button x:Name="Dice5Select" Text="Select" Background="Transparent" Grid.Row="11" Grid.RowSpan="1" Grid.ColumnSpan="2" Clicked="Dice5Select_Clicked"/>
 
 
-                    <Button x:Name="Btn_RollDice" Grid.Row="11" Text="New Game" BackgroundColor="Green" Grid.ColumnSpan="2" Clicked="Btn_RollDice_Clicked"></Button>
+                    <Button x:Name="Btn_RollDice" Grid.Row="12" Text="" BackgroundColor="#82b74b" Grid.ColumnSpan="2" Clicked="Btn_RollDice_Clicked"/>
 
 
                 </Grid>
                 <!-- End of Dice Area -->
             </Grid>
         </Frame>
+        <!-- End of Gameboard -->
+        
+        <!-- Score Sheet -->
+        <Frame x:Name="ScoreSheet" BackgroundColor="Gold" Padding="20" CornerRadius="10">
+            <!--  Grid for the Score Sheet  -->
+            <Grid BackgroundColor="WhiteSmoke" HeightRequest="800" 
+                  WidthRequest="600" HorizontalOptions="Center" 
+                  VerticalOptions="Center" ColumnSpacing="1" 
+                  RowSpacing="1">
+
+                <!-- Columns -->
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+
+                <!-- Row -->
+                <Grid.RowDefinitions>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                </Grid.RowDefinitions>
+
+                <!-- Score Sheet -->
+                <Label Text="Score Sheet" HorizontalOptions="Center" 
+                       Grid.Row="0" Grid.Column="0" FontSize="60" Grid.ColumnSpan="6"/>
+
+                <!-- Display Score -->
+                <Label Text="Upper Section Total" HorizontalOptions="Center" 
+                       Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="2" Grid.RowSpan="3"/>
+                <Label x:Name="UpperSection" Text="" HorizontalOptions="Center" Grid.Row="2" Grid.Column="3"/>
+
+                <Label Text="Bonus" HorizontalOptions="Center"
+                       Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="2" Grid.RowSpan="3"/>
+                <Label x:Name="BonusGot" Text="" HorizontalOptions="Center" Grid.Row="3" Grid.Column="3"/>
+
+                <Label Text="Lower Section Total" HorizontalOptions="Center" 
+                       Grid.Row="4" Grid.Column="0" Grid.ColumnSpan="2" Grid.RowSpan="3"/>
+                <Label x:Name="LowerSection" Text="" HorizontalOptions="Center" Grid.Row="4" Grid.Column="3"/>
+
+                <Label Text="OverAll Total" HorizontalOptions="Center" 
+                       Grid.Row="5" Grid.Column="0" Grid.ColumnSpan="2" Grid.RowSpan="3"/>
+                <Label x:Name="Total" Text="" HorizontalOptions="Center" Grid.Row="5" Grid.Column="4"/>
+
+                <!-- Display Message -->
+                <Label x:Name="Message" HorizontalOptions="Center" Text="" FontSize="18"
+                       Grid.Row="7" Grid.Column="0" Grid.ColumnSpan="6" Grid.RowSpan="2"/>
+
+                <!-- New Game Button -->
+                <Button x:Name="GameOver" Text="New Game" Grid.Row="8" Grid.Column="1"  Grid.ColumnSpan="4"
+                        BackgroundColor="#50394c" FontSize="40" Clicked="GameOver_Clicked"/>
+
+            </Grid>
+        </Frame>
+        <!-- End of Score Sheet -->
     </StackLayout>
 </ContentPage>
 
